@@ -1,4 +1,5 @@
-Summary:	Boa Constructor is a cross platform Python IDE
+Summary:	Boa Constructor - a cross platform Python IDE
+Summary(pl):	Boa Constructor - wieloplatformowe IDE do Pythona
 Name:		boa-constructor
 Version:	0.3.1
 Release:	0.1
@@ -16,8 +17,16 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Boa Constructor is a cross platform Python IDE and wxPython GUI
 Builder. It offers visual frame creation and manipulation, an object
 inspector, many views on the source like object browsers, inheritance
-hierarchies, doc string generated html documentation, an advanced
+hierarchies, doc string generated HTML documentation, an advanced
 debugger and integrated help.
+
+%description -l pl
+Boa Constructor to wieloplatformowe IDE do Pythona oraz narzêdzie do
+budowania GUI opartych o bibliotekê wxPython. Oferuje wizualne
+tworzenie i obróbkê ramek, inspektora obiektów, wiele widoków ¼róde³,
+takich jak przegl±darki obiektów, hierarchie dziedziczenia,
+dokumentacjê HTML generowan± z ³añcuchów doc oraz zaawansowany
+debugger i zintegrowan± pomoc.
 
 %prep
 %setup -q
