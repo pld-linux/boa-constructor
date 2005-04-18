@@ -9,8 +9,8 @@ Source0:	http://dl.sourceforge.net/boa-constructor/%{name}-%{version}.src.zip
 # Source0-md5:	4de080793412c5d57324b4f7f5ec3e79
 #		boa-constructor-0.4.0.src.zip
 URL:		http://boa-constructor.sourceforge.net/
-Requires:	python-wxPython >= 2.4
-Requires:	python-wxPython < 2.5
+Requires:	python-wxPython > 2.4
+#Requires:	python-wxPython < 2.5
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
