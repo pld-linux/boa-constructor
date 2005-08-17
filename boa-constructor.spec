@@ -1,12 +1,12 @@
 Summary:	Boa Constructor - a cross platform Python IDE
 Summary(pl):	Boa Constructor - wieloplatformowe IDE do Pythona
 Name:		boa-constructor
-Version:	0.4.0
+Version:	0.4.4
 Release:	0.1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	http://dl.sourceforge.net/boa-constructor/%{name}-%{version}.src.zip
-# Source0-md5:	4de080793412c5d57324b4f7f5ec3e79
+Source0:	http://dl.sourceforge.net/boa-constructor/%{name}-%{version}.zip
+# Source0-md5:	16d3384744e683e982907caef9f76c98
 #		boa-constructor-0.4.0.src.zip
 URL:		http://boa-constructor.sourceforge.net/
 BuildRequires:	unzip
