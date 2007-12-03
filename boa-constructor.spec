@@ -1,12 +1,13 @@
+%define		_ver beta
 Summary:	Boa Constructor - a cross platform Python IDE
 Summary(pl.UTF-8):	Boa Constructor - wieloplatformowe IDE do Pythona
 Name:		boa-constructor
-Version:	0.4.4
-Release:	0.1
+Version:	0.6.1
+Release:	0.%{_ver}.1
 License:	GPL
 Group:		X11/Development/Tools
-Source0:	http://dl.sourceforge.net/boa-constructor/%{name}-%{version}.zip
-# Source0-md5:	16d3384744e683e982907caef9f76c98
+Source0:	http://dl.sourceforge.net/boa-constructor/%{name}-%{version}.src.zip
+# Source0-md5:	150d923c608a405eeb17bf655ce26b14
 #		boa-constructor-0.4.0.src.zip
 URL:		http://boa-constructor.sourceforge.net/
 BuildRequires:	unzip
@@ -33,18 +34,41 @@ debugger i zintegrowaną pomoc.
 %prep
 %setup -q
 
+convert Images/Icons/Boa.ico -format png ./Boa.png
+ 
+cat <<'EOF' > Boa.desktop
+[Desktop Entry]
+Name=Boa-Construktor
+Comment=Cross platform Python IDE and wxPython GUI
+Comment[pl]=Wieloplatformowe IDE do Pythona oraz narzędzie do budowania GUI
+Icon=Boa.png
+Exec=boa
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Development;IDE;
+# vi: encoding=utf-8
+EOF
+
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_desktopdir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_examplesdir}/%{name}}
 
+install Boa.png $RPM_BUILD_ROOT%{_pixmapsdir}
+install Boa.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install *.py* $RPM_BUILD_ROOT%{_datadir}/%{name}
-
-cp -r bcrtl Companions Config Debugger Docs Examples Explorers ExternalLib Images \
+cp -r bcrtl Companions Config Debugger Docs Explorers ExternalLib Images \
 	Models Plug-ins PropEdit Views ZopeLib $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -r Examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
+find  $RPM_BUILD_ROOT%{_datadir}/%{name} -maxdepth 2 -name "*.py" | xargs rm
 
 echo -e "#!/bin/sh
 cd %{_datadir}/%{name}
-python Boa.py" > $RPM_BUILD_ROOT%{_bindir}/boa
+python Boa.pyc" > $RPM_BUILD_ROOT%{_bindir}/boa
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,3 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.txt
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
+%{_examplesdir}/%{name}
+%{_pixmapsdir}/Boa.png
+%{_desktopdir}/Boa.desktop
