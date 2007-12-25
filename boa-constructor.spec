@@ -10,6 +10,7 @@ Source0:	http://dl.sourceforge.net/boa-constructor/%{name}-%{version}.src.zip
 # Source0-md5:	150d923c608a405eeb17bf655ce26b14
 #		boa-constructor-0.4.0.src.zip
 URL:		http://boa-constructor.sourceforge.net/
+BuildRequires:	ImageMagick
 BuildRequires:	unzip
 Requires:	python-wxPython > 2.4
 #Requires:	python-wxPython < 2.5
