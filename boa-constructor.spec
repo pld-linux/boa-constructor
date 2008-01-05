@@ -46,7 +46,6 @@ Icon=Boa.png
 Exec=boa
 Terminal=false
 Type=Application
-Encoding=UTF-8
 Categories=Development;IDE;
 # vi: encoding=utf-8
 EOF
